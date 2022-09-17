@@ -1,0 +1,32 @@
+{
+  "name": "modal-portafolio-wcll",
+  "version": "1.0.0",
+  "description": "Modal para mostrar tus proyectos de tu portafolio personal",
+  "main": "modal-portafolio-wcll.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "app": "polymer serve -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Miguelp11/modal-portafolio-wcll.git"
+  },
+  "keywords": [
+    "lit",
+    "litelement",
+    "javascript",
+    "webcomponents",
+    "html",
+    "css"
+  ],
+  "author": "Miguel Ponce WCLL",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Miguelp11/modal-portafolio-wcll/issues"
+  },
+  "homepage": "https://github.com/Miguelp11/modal-portafolio-wcll#readme",
+  "dependencies": {
+    "lit": "^2.3.1",
+    "polymer-cli": "^1.9.11"
+  }
+}
