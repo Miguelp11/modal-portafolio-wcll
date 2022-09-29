@@ -22,18 +22,30 @@ export class ModalPortafolioWcll extends LitElement {
       .modal-content {
         display: grid;
         grid-template-columns: repeat(12, 1fr);
-        grid-template-rows: auto 2fr;
+        grid-template-rows: auto repeat(2, 1fr);
         /* grid-template-rows: repeat(2, 1fr); */
         /* display: flex;
         flex-direction: column;
         align-content: center; */
         height: 90vh;
         width: 90vw;
-        max-width: 1200px;
-        max-height: 900px;
+        max-width: 1024px;
+        max-height: 720px;
         background-color: #fff;
         /* margin: 30px auto; */
         /* overflow: scroll; */
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .modal-content-whimage {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-template-rows: auto 1fr;
+        height: 90vh;
+        width: 90vw;
+        max-width: 1024px;
+        max-height: 720px;
+        background-color: #fff;
         border-radius: 5px;
         padding: 10px;
       }
@@ -56,14 +68,26 @@ export class ModalPortafolioWcll extends LitElement {
         opacity: 1;
       }
       .modal-img {
-        grid-column: 1/10;
+        grid-column: 1/13;
         grid-row: 2/3;
       }
       .modal-info {
-        grid-column: 10/13;
-        grid-row: 2/3;
+        grid-column: 1/13;
+        grid-row: 3/4;
+        display: flex;
       }
-      .modal-info h3 {
+      .modal-info-whimage {
+        grid-column: 1/13;
+        grid-row: 2/3;
+        display: flex;
+      }
+      .info-project, .detail-project {
+        width: 50%;
+      }
+      .reverse {
+        flex-direction: row-reverse;
+      }
+      .modal-info h3, .modal-info-whimage h3 {
         text-align: center;
       }
       .line {
@@ -79,7 +103,9 @@ export class ModalPortafolioWcll extends LitElement {
     return {
       title: {type: String},
       isOpen: {type: Boolean},
-      details: {type: Object}
+      details: {type: Object},
+      urlImage: {type: String},
+      reverseDetails: {type: Boolean},
     };
   }
  
@@ -91,26 +117,20 @@ export class ModalPortafolioWcll extends LitElement {
      'Nombre': 'Mi primer proyecto',
      'Url': 'www.url.com'
     };
+    this.urlImage = '';
+    this.reverseDetails = false;
   }
 
   render() {
     return html`
       <div class="modal ${this.isOpen ? 'openModal' : ''}">
-        <div class="modal-content">
+        <div class="${this.urlImage ? 'modal-content' : 'modal-content-whimage'}">
           <div class="modal-close" @click="${this.closeModal}">X</div>
           <div class="modal-title">
             <p>${this.title}</p>
           </div>
-          <div class="modal-img">
-            <img src="" alt="${this.title}">
-          </div>
-          <div class="modal-info">
-            <h3>Información del proyecto</h3>
-            ${this._getDetailsProyect()}
-            <div class="line"></div>
-            <h3>Detalles del proyecto</h3>
-            <div class="line"></div>
-          </div>
+          ${this.urlImage ? this._getTplImage() : '' }
+          ${this._getTplDetails()}
         </div>
     </div>
     `;
@@ -118,6 +138,30 @@ export class ModalPortafolioWcll extends LitElement {
 
   closeModal() {
     this.isOpen = false;
+  }
+
+  _getTplImage() {
+    return html `
+      <div class="modal-img">
+        <img src="${this.urlImage}" alt="${this.title}">
+      </div>
+    `;
+  }
+
+  _getTplDetails() {
+    return html `
+      <div class="${this.urlImage ? 'modal-info' : 'modal-info-whimage'} ${this.reverseDetails ? 'reverse' : '' }">
+        <div class="info-project"> 
+          <h3>Información del proyecto</h3>
+          <div class="line"></div>
+          ${this._getDetailsProyect()}
+        </div>
+        <div class="detail-project"> 
+          <h3>Detalles del proyecto</h3>
+          <div class="line"></div>
+        </div>
+      </div>
+    `;
   }
 
   _getDetailsProyect() {
