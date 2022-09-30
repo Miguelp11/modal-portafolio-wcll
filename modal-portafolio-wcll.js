@@ -1,10 +1,25 @@
 import {LitElement, html, css} from 'lit';
+import {classMap} from 'lit/directives/class-map.js';
+import {ifDefined} from 'lit/directives/if-defined.js';
 
 export class ModalPortafolioWcll extends LitElement {
   static get styles() {
     return css`
       :host {
         font-family: Arial, Helvetica, sans-serif;
+      }
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .image-contain {
+        object-fit: contain;
+      }
+      .image-cover {
+        object-fit: cover;
+      }
+      .image-fill {
+        object-fit: fill;
       }
       .modal {
         width: 100%;
@@ -70,6 +85,8 @@ export class ModalPortafolioWcll extends LitElement {
       .modal-img {
         grid-column: 1/13;
         grid-row: 2/3;
+        max-width: 1024px;
+        max-height: 335px;
       }
       .modal-info {
         grid-column: 1/13;
@@ -98,7 +115,7 @@ export class ModalPortafolioWcll extends LitElement {
       }
     `;
   }
- 
+
   static get properties() {
     return {
       title: {type: String},
@@ -106,19 +123,21 @@ export class ModalPortafolioWcll extends LitElement {
       details: {type: Object},
       urlImage: {type: String},
       reverseDetails: {type: Boolean},
+      size: {type: String, reflect: true}
     };
   }
- 
+
   constructor() {
     super();
     this.title = 'Nombre de tu proyecto';
     this.isOpen = false;
     this.details = {
-     'Nombre': 'Mi primer proyecto',
-     'Url': 'www.url.com'
+      'Nombre': 'Mi primer proyecto',
+      'Url': 'www.url.com'
     };
     this.urlImage = '';
     this.reverseDetails = false;
+    this.size = 'complete';
   }
 
   render() {
@@ -129,8 +148,8 @@ export class ModalPortafolioWcll extends LitElement {
           <div class="modal-title">
             <p>${this.title}</p>
           </div>
-          ${this.urlImage ? this._getTplImage() : '' }
-          ${this._getTplDetails()}
+          ${this.urlImage ? this.getTplImage : '' }
+          ${this.getTplDetails}
         </div>
     </div>
     `;
@@ -140,15 +159,15 @@ export class ModalPortafolioWcll extends LitElement {
     this.isOpen = false;
   }
 
-  _getTplImage() {
+  get getTplImage() {
     return html `
       <div class="modal-img">
-        <img src="${this.urlImage}" alt="${this.title}">
+        <img src="${this.urlImage}" alt="${this.title}" class="${ifDefined(this._selectionImageSize()) }">
       </div>
     `;
   }
 
-  _getTplDetails() {
+  get getTplDetails() {
     return html `
       <div class="${this.urlImage ? 'modal-info' : 'modal-info-whimage'} ${this.reverseDetails ? 'reverse' : '' }">
         <div class="info-project"> 
@@ -167,6 +186,17 @@ export class ModalPortafolioWcll extends LitElement {
   _getDetailsProyect() {
     const dataDetails = Object.entries(this.details);
     return dataDetails.map(data => html `<p class="cat">${data[0]} : <span>${data[1]} </span></p>`);
+  }
+
+  _selectionImageSize() {
+    switch (this.size) {
+      case 'original':
+        return 'image-contain';
+      case 'complete':
+        return 'image-cover';
+      case 'comprime': 
+        return 'image-fill';
+    }
   }
 
  }
