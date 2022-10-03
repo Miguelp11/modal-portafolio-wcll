@@ -1,5 +1,5 @@
 import {LitElement, html, css} from 'lit';
-import {stylesModalPortfolio} from './modal-portafolio-wccll-styles';
+import {stylesModalPortfolio} from './modal-portfolio-wccll-styles';
 import {ifDefined} from 'lit/directives/if-defined.js';
 
 export class ModalPortfolioWcll extends LitElement {
@@ -63,6 +63,11 @@ export class ModalPortfolioWcll extends LitElement {
 
   closeModal() {
     this.isOpen = false;
+    this.dispatchEvent(new CustomEvent('modal-closed', {
+      bubbles: true,
+      composed: true,
+      detail: this
+    }));
   }
 
   get getTplImage() {

@@ -1,5 +1,5 @@
 import { LitElement, html, css } from 'lit';
-import '../modal-portafolio-wcll';
+import '../modal-portfolio-wcll';
 
 class AppDemo extends LitElement {
 
@@ -21,8 +21,15 @@ class AppDemo extends LitElement {
 
   render() {
     return html`
-      <modal-portafolio-wcll> </modal-portafolio-wcll>
+      <button @click="${this.openModalDefault}">Abrir Modal</button>
+      <modal-portfolio-wcll id="modal-default"></modal-portfolio-wcll>
     `;
+  }
+
+  openModalDefault() {
+    const modal = this.shadowRoot.querySelector('#modal-default');
+    console.log(modal);
+    modal.isOpen = true;
   }
 }
 
