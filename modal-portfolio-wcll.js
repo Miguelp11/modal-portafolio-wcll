@@ -22,11 +22,12 @@ export class ModalPortfolioWcll extends LitElement {
       title: {type: String},
       titleDetail: {type: String},
       titleInfo: {type: String},
-      isOpen: {type: Boolean},
+      isOpen: {type: Boolean, reflect: true},
       details: {type: Object},
       urlImage: {type: String},
       reverseDetails: {type: Boolean},
-      size: {type: String, reflect: true}
+      size: {type: String, reflect: true},
+      timeAnimation: {type: Number, reflect: true}
     };
   }
 
@@ -44,11 +45,13 @@ export class ModalPortfolioWcll extends LitElement {
     this.size = 'complete';
     this.titleDetail = 'Detalles del proyecto';
     this.titleInfo = '';
+    this.timeAnimation = 1000;
+    this.initAnimation = false;
   }
 
   render() {
     return html`
-      <div class="modal ${this.isOpen ? 'openModal' : ''}">
+      <div class="modal ${this.isOpen ? 'openModal' : ''} ${this.animation ? 'closeModal' : ''}">
         <div class="${this.urlImage ? 'modal-content' : 'modal-content-whimage'}">
           <div class="modal-close" @click="${this.closeModal}">X</div>
           <div class="modal-title">
@@ -62,12 +65,12 @@ export class ModalPortfolioWcll extends LitElement {
   }
 
   closeModal() {
-    this.isOpen = false;
-    this.dispatchEvent(new CustomEvent('modal-closed', {
-      bubbles: true,
-      composed: true,
-      detail: this
-    }));
+    this.initAnimation = true;
+    this.requestUpdate();
+    setTimeout(() => {
+      this.isOpen = false;
+      this.initAnimation = false;
+    }, this.timeAnimation);
   }
 
   get getTplImage() {

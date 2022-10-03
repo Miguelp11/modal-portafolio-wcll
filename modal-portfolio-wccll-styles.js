@@ -2,8 +2,8 @@ import { css } from "lit";
 
 export const stylesModalPortfolio = css `
   * {
-      box-sizing: border-box;
-    }
+    box-sizing: border-box;
+  }
   img {
     margin-top: 5px;
     width: 100%;
@@ -26,13 +26,13 @@ export const stylesModalPortfolio = css `
     top: 0;
     left: 0;
     z-index: 100;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
-    // opacity: 0;
+    opacity: 0;
+    visibility: hidden;
     font-size: 12px;
-    animation-delay: var(--animation-duration);
-    // transition: opacity var(--animation-duration) ease-in;
+    transition: opacity var(--animation-duration) ease-in;
   }
   .modal-content {
     display: grid;
@@ -44,8 +44,6 @@ export const stylesModalPortfolio = css `
     /* overflow: scroll; */
     border-radius: 5px;
     padding: 10px;
-    opacity: 0;
-    transition: opacity var(--animation-duration) ease-in;
   }
   .modal-content-whimage {
     display: grid;
@@ -56,8 +54,6 @@ export const stylesModalPortfolio = css `
     background-color: var(--background-color-modal-content);
     border-radius: 5px;
     padding: 10px;
-    
-    animation: var(--animation-duration) show;
   }
   .modal-close {
     grid-column: 12/13;
@@ -65,9 +61,6 @@ export const stylesModalPortfolio = css `
     border-bottom: 1px solid var(--color-border-title);
     padding-top: 16px;
     cursor: pointer;
-  }
-  .close-animation {
-    animation: var(--animation-duration) hidden;
   }
   .modal-title {
     grid-column: 1/12;
@@ -81,7 +74,13 @@ export const stylesModalPortfolio = css `
     font-size: 16px;
   }
   .openModal {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity var(--animation-duration) ease-in;
+  }
+  .closeModal {
+    opacity: 0;
+    transition: opacity var(--animation-duration) ease-in;
   }
   .modal-img {
     grid-column: 1/13;
@@ -130,14 +129,6 @@ export const stylesModalPortfolio = css `
     text-decoration: none;
     font-weight: bold;
   }
-  @keyframes show {
-  from { opacity:0}
-  to {opacity:1}
-}
-   @keyframes hidden {
-  from { opacity:1}
-  to {opacity:0}
-}
   @media screen and (min-width: 480px) {
     .modal {
       font-size: 14px;
