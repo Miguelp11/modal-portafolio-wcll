@@ -1,8 +1,8 @@
 {
-  "name": "modal-portafolio-wcll",
+  "name": "modal-portfolio-wcll",
   "version": "1.0.0",
   "description": "Modal para mostrar tus proyectos de tu portafolio personal",
-  "main": "modal-portafolio-wcll.js",
+  "main": "modal-portfolio-wcll.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "app": "polymer serve -o"
