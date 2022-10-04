@@ -13,6 +13,7 @@ export class ModalPortfolioWcll extends LitElement {
         --color-border-title: #d1d1d1;
         --color-separation-info-title: #0563BB;
         --color-text-visit-detail: #0563BB;
+        --color-text-modal: #000;
       }
     `, stylesModalPortfolio] 
   };
@@ -45,7 +46,7 @@ export class ModalPortfolioWcll extends LitElement {
     this.size = 'complete';
     this.titleDetail = 'Detalles del proyecto';
     this.titleInfo = '';
-    this.timeAnimation = 1000;
+    this.timeAnimation = 400;
     this.initAnimation = false;
   }
 
@@ -57,8 +58,8 @@ export class ModalPortfolioWcll extends LitElement {
           <div class="modal-title">
             <h2>${this.title}</h2>
           </div>
-          ${this.urlImage ? this.getTplImage : '' }
-          ${this.getTplModalDetails}
+          ${this.urlImage ? this._getTplImage : '' }
+          ${this._getTplModalDetails}
         </div>
     </div>
     `;
@@ -73,7 +74,11 @@ export class ModalPortfolioWcll extends LitElement {
     }, this.timeAnimation);
   }
 
-  get getTplImage() {
+  openModal(){
+    this.isOpen = true;
+  } 
+
+  get _getTplImage() {
     return html `
       <div class="modal-img">
         <img src="${this.urlImage}" alt="${this.title}" class="${ifDefined(this._selectionImageSize()) }">
@@ -81,15 +86,15 @@ export class ModalPortfolioWcll extends LitElement {
     `;
   }
 
-  get getTplModalDetails() {
+  get _getTplModalDetails() {
     return html `
       <div class="${this.urlImage ? 'modal-info' : 'modal-info-whimage'} ${this.reverseDetails ? 'reverse' : ''}">
-        ${this.titleInfo ? this._getBothInfoProyect() : this._getOnlyDetailsProyect()}  
+        ${this.titleInfo ? this._getBothInfoProyect : this._getOnlyDetailsProyect}  
       </div>
     `;
   }
 
-  _getBothInfoProyect() {
+  get _getBothInfoProyect() {
     return html `
         <div class="info-project"> 
           <h3>${this.titleInfo}</h3>
@@ -104,7 +109,7 @@ export class ModalPortfolioWcll extends LitElement {
     `;
   }
 
-  _getOnlyDetailsProyect() {
+  get _getOnlyDetailsProyect() {
     return html `
       <div class="detail-project-only">
         <h3>${this.titleDetail}</h3>

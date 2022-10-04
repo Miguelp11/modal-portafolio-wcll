@@ -33,6 +33,7 @@ export const stylesModalPortfolio = css `
     visibility: hidden;
     font-size: 12px;
     transition: opacity var(--animation-duration) ease-in;
+    color: var(--color-text-modal);
   }
   .modal-content {
     display: grid;
