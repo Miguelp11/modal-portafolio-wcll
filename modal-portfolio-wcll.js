@@ -1,6 +1,6 @@
-import {LitElement, html, css} from 'lit';
-import {stylesModalPortfolio} from './modal-portfolio-wccll-styles';
-import {ifDefined} from 'lit/directives/if-defined.js';
+import { LitElement, html, css } from 'lit';
+import { stylesModalPortfolio } from './modal-portfolio-wccll-styles';
+import { ifDefined } from 'lit/directives/if-defined.js';
 
 export class ModalPortfolioWcll extends LitElement {
   static get styles() {
@@ -36,17 +36,13 @@ export class ModalPortfolioWcll extends LitElement {
     super();
     this.title = 'Nombre de tu proyecto';
     this.isOpen = false;
-    this.details = {
-      'Nombre': 'Mi primer proyecto',
-      'Url': 'www.url.com',
-      'Link': 'https://miguelp11.github.io/TallerPracticoJS/'
-    };
+    this.details = { };
     this.urlImage = '';
     this.reverseDetails = false;
     this.size = 'complete';
     this.titleDetail = 'Detalles del proyecto';
     this.titleInfo = '';
-    this.timeAnimation = 400;
+    this.timeAnimation = 500;
     this.initAnimation = false;
   }
 
