@@ -51,7 +51,7 @@ export class ModalPortfolioWcll extends LitElement {
 
   render() {
     return html`
-      <div class="modal ${this.isOpen ? 'openModal' : ''} ${this.animation ? 'closeModal' : ''}">
+      <div class="modal ${this.isOpen ? 'openModal' : ''} ${this.initAnimation ? 'closeModal' : ''}">
         <div class="${this.urlImage ? 'modal-content' : 'modal-content-whimage'}">
           <div class="modal-close" @click="${this.closeModal}">X</div>
           <div class="modal-title">
