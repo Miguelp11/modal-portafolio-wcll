@@ -1,5 +1,5 @@
 {
-  "name": "modal-portfolio-wcll",
+  "name": "@wcll/modal-portfolio-wcll",
   "version": "1.0.0",
   "description": "Modal para mostrar tus proyectos de tu portafolio personal",
   "main": "modal-portfolio-wcll.js",
