@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Miguelp11/modal-portafolio-wcll.git"
+    "url": "git+https://github.com/Miguelp11/modal-portfolio-wcll.git"
   },
   "keywords": [
     "lit",
@@ -22,9 +22,9 @@
   "author": "Miguel Ponce WCLL",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Miguelp11/modal-portafolio-wcll/issues"
+    "url": "https://github.com/Miguelp11/modal-portfolio-wcll/issues"
   },
-  "homepage": "https://github.com/Miguelp11/modal-portafolio-wcll#readme",
+  "homepage": "https://github.com/Miguelp11/modal-portfolio-wcll#readme",
   "dependencies": {
     "lit": "^2.3.1",
     "polymer-cli": "^1.9.11"
