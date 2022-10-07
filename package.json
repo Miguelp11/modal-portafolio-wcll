@@ -1,6 +1,6 @@
 {
   "name": "@webc-lit/modal-portfolio-wcll",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Modal para mostrar tus proyectos de tu portafolio personal",
   "main": "modal-portfolio-wcll.js",
   "scripts": {
