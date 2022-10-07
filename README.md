@@ -43,7 +43,7 @@ http://127.0.0.1:8081/demo/
 Para mas ejemplos revisar el demo.
 
 ## Metodos
----
+
 - **openModal()**: Abre el modal.
 - **closeModal()**: Cierra el modal y controla el tiempo de animación de cierre.
 
@@ -58,7 +58,6 @@ modal.openModal();
 ```
 
 ## Propiedades
----
 
 Propiedad            | Tipo    | Descripción | Valor | Defecto
 ---------------------|---------|-------------|-------|---------
@@ -77,7 +76,6 @@ Para la propiedad ```details``` si agregas una prop del objeto con el nombre _Li
 Para la propiedad ``` timeAnimation``` cada 100 representa .1 segundos, lo recomendando es ajustar una suma de 200 al tiempo que se le designe a la variable css ```--animation-duration```. Por ejemplo el valor por defecto de ```--animation-duration``` es de .3 por lo que la propiedad  ```timeAnimation``` su valor es de 500.
 
 ## Estilos personalizados 
----
 
 Variable css                           | Descripción | Defecto
 ---------------------------------------|-------------|---------
