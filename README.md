@@ -66,7 +66,7 @@ Propiedad            | Tipo    | Descripción | Valor | Defecto
 ```titleInfo```      | String  | Titulo sección información | "" | ""
 ```isOpen```         | Boolean | Abrir / cerrar el modal| true/false | false
 ```details```        | Object  | Listar información del proyecto | { prop : valor} | {}
-```url-image```      | String  | Ruta de la imagen a mostrar | "" | ""
+```urlImage```       | String  | Ruta de la imagen a mostrar | "" | ""
 ```reverseDetails``` | Boolean | Intercambiar la posición de secciones | true/false | false
 ```size```           | String  | Ajustar el tamaño de la imagen | "original/complete/compress" | "complete"
 ```timeAnimation```  | Number  | Ajustar el tiempo de cierre | Enteros multiplos de 100 | 500
