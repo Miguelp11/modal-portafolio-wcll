@@ -5,7 +5,8 @@
   "main": "modal-portfolio-wcll.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "app": "polymer serve -o"
+    "app": "polymer serve -o",
+    "build": "polymer build"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,8 @@
   },
   "homepage": "https://github.com/Miguelp11/modal-portfolio-wcll#readme",
   "dependencies": {
+    "@webcomponents/custom-elements": "^1.5.0",
+    "@webcomponents/webcomponentsjs": "^2.6.0",
     "lit": "^2.3.1",
     "polymer-cli": "^1.9.11"
   }
