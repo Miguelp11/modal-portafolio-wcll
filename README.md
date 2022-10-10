@@ -2,6 +2,10 @@
 
 WebComponent basado en LitElement para implementar una ventana modal desarrollada con el proposito de mostrar información acerca de tus proyectos, que puedes integrar en tu portafolio personal. 
 
+# Demo
+
+[Visita la página con el demo](https://miguelp11.github.io/modal-portfolio-wcll/build/es5-bundled/demo/)
+
 # Uso
 
 Instalar desde npm:
